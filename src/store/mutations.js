@@ -9,3 +9,9 @@ export const loaderMutations = {
     state.isFetching = false
   }
 }
+
+export const cardMutations = {
+  [types.SET_CARDS]: (state, payload) => {
+    state.cards = payload
+  }
+}

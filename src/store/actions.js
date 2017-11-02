@@ -8,7 +8,7 @@ export const trickActions = {
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=21')
       .then(response => response.json())
       .then((response) => {
-        console.log(response.cards)
+        commit(mutations.SET_CARDS, response.cards)
       })
       .catch((error) => {
         console.error(error)

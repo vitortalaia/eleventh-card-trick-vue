@@ -33,6 +33,9 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
+import * as actions from '@/store/action-types'
 import fakeColumns from '@/fake-columns'
 
 export default {
@@ -52,6 +55,10 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      fetchCards: actions.FETCH_CARDS
+    }),
+
     generateCardAlt (card) {
       return `${this.capitalize(card.value)} of ${card.suit.toLowerCase()}`
     },
@@ -59,6 +66,10 @@ export default {
     capitalize (string) {
       return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
     }
+  },
+
+  created () {
+    this.fetchCards()
   }
 }
 </script>

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import { loaderMutations } from '@/store/mutations'
+import { loaderMutations, cardMutations } from '@/store/mutations'
 import { trickActions } from '@/store/actions'
 
 Vue.use(Vuex)
@@ -12,7 +12,7 @@ export default new Vuex.Store({
     cards: []
   },
 
-  mutations: { ...loaderMutations },
+  mutations: { ...loaderMutations, ...cardMutations },
 
   actions: { ...trickActions }
 })
