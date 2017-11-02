@@ -33,25 +33,24 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import {
+  mapState,
+  mapActions,
+  mapGetters
+} from 'vuex'
 
 import * as actions from '@/store/action-types'
-import fakeColumns from '@/fake-columns'
 
 export default {
   name: 'trick',
 
-  data () {
-    return {
-      numberOfRows: 3,
-      cardsPerRow: 7
-    }
-  },
-
   computed: {
-    columns () {
-      return fakeColumns
-    }
+    ...mapState([
+      'numberOfRows',
+      'cardsPerRow'
+    ]),
+
+    ...mapGetters(['columns'])
   },
 
   methods: {
