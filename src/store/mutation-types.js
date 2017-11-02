@@ -1,0 +1,2 @@
+export const DISPLAY_LOADER = 'DISPLAY_LOADER'
+export const HIDE_LOADER = 'HIDE_LOADER'
