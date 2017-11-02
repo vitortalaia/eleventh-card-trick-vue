@@ -12,6 +12,7 @@ export default new Vuex.Store({
     numberOfRows: 3,
     cardsPerRow: 7,
     isFetching: false,
+    currentRound: 0,
     cards: []
   },
 
