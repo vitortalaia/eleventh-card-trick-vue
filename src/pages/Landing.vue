@@ -10,24 +10,21 @@
       card will be revealed!
     </p>
 
-    <router-link class="start-button" :to="{ name: 'Trick' }">
-      Start
-    </router-link>
+    <PlayButton />
   </div>
 </template>
 
 <script>
+import PlayButton from '@/components/PlayButton'
+
 export default {
-  name: 'landing-page'
+  name: 'landing-page',
+
+  components: { PlayButton }
 }
 </script>
 
 <style scoped>
-.container {
-  max-width: 50rem;
-  text-align: center;
-}
-
 .title {
   margin-top: 0;
   margin-bottom: 1.875rem;
@@ -41,18 +38,5 @@ export default {
   margin-top: 0;
   margin-bottom: 3.125rem;
   font-size: 1.125rem;
-}
-
-.start-button {
-  padding: 1rem 5rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: .3125rem;
-  border-color: #fff;
-  border-width: .1875rem;
-  border-style: solid;
 }
 </style>
