@@ -10,7 +10,9 @@
       card will be revealed!
     </p>
 
-    <a class="start-button" href="#">Start</a>
+    <router-link class="start-button" :to="{ name: 'Trick' }">
+      Start
+    </router-link>
   </div>
 </template>
 
