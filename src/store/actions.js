@@ -16,5 +16,13 @@ export const trickActions = {
       .then(() => {
         commit(mutations.HIDE_LOADER)
       })
+  },
+
+  [actions.CHOOSE_ROW]: ({ commit, getters }, payload) => {
+    const columns = getters.columns
+    const rowIndex = payload
+
+    commit(mutations.CHOOSE_ROW, { rowIndex, columns })
+    commit(mutations.BUMP_ROUND)
   }
 }

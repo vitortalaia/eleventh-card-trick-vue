@@ -9,7 +9,12 @@
 
     <Spinner v-if="isFetching" />
 
-    <CardsTable v-else :numberOfRows="numberOfRows" :columns="columns" />
+    <CardsTable
+      v-else
+      :numberOfRows="numberOfRows"
+      :columns="columns"
+      @chooseRow="chooseRow"
+    />
   </div>
 </template>
 
@@ -42,7 +47,8 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchCards: actions.FETCH_CARDS
+      fetchCards: actions.FETCH_CARDS,
+      chooseRow: actions.CHOOSE_ROW
     })
   },
 
