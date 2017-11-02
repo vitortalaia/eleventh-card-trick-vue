@@ -33,25 +33,31 @@
 </template>
 
 <script>
-import fakeColumns from '@/fake-columns'
+import {
+  mapState,
+  mapActions,
+  mapGetters
+} from 'vuex'
+
+import * as actions from '@/store/action-types'
 
 export default {
   name: 'trick',
 
-  data () {
-    return {
-      numberOfRows: 3,
-      cardsPerRow: 7
-    }
-  },
-
   computed: {
-    columns () {
-      return fakeColumns
-    }
+    ...mapState([
+      'numberOfRows',
+      'cardsPerRow'
+    ]),
+
+    ...mapGetters(['columns'])
   },
 
   methods: {
+    ...mapActions({
+      fetchCards: actions.FETCH_CARDS
+    }),
+
     generateCardAlt (card) {
       return `${this.capitalize(card.value)} of ${card.suit.toLowerCase()}`
     },
@@ -59,6 +65,10 @@ export default {
     capitalize (string) {
       return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
     }
+  },
+
+  created () {
+    this.fetchCards()
   }
 }
 </script>
