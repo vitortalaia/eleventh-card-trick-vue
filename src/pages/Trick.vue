@@ -2,10 +2,7 @@
   <div class="container">
     <h1 class="title">Eleventh Card Trick</h1>
 
-    <p>
-      Choose a card, remember it, and click on the button that corresponds to
-      the row on which your card is.
-    </p>
+    <RoundInstructions :currentRound="currentRound" />
 
     <Spinner v-if="isFetching" />
 
@@ -29,17 +26,23 @@ import * as actions from '@/store/action-types'
 
 import Spinner from '@/components/Spinner'
 import CardsTable from '@/components/CardsTable'
+import RoundInstructions from '@/components/RoundInstructions'
 
 export default {
   name: 'trick',
 
-  components: { Spinner, CardsTable },
+  components: {
+    Spinner,
+    CardsTable,
+    RoundInstructions
+  },
 
   computed: {
     ...mapState([
       'numberOfRows',
       'cardsPerRow',
-      'isFetching'
+      'isFetching',
+      'currentRound'
     ]),
 
     ...mapGetters(['columns'])
