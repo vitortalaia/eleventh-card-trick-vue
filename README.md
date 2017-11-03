@@ -2,6 +2,8 @@
 
 > A simple card trick that can read your mind!
 
+Play [here](https://vitortalaia.github.io/eleventh-card-trick-vue)
+
 ## Build Setup
 
 ``` bash
