@@ -42,7 +42,8 @@ export default {
       'numberOfRows',
       'cardsPerRow',
       'isFetching',
-      'currentRound'
+      'currentRound',
+      'finalRound'
     ]),
 
     ...mapGetters(['columns'])
@@ -50,9 +51,19 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchCards: actions.FETCH_CARDS,
-      chooseRow: actions.CHOOSE_ROW
-    })
+      fetchCards: actions.FETCH_CARDS
+    }),
+
+    chooseRow (rowIndex) {
+      this.$store.dispatch(actions.CHOOSE_ROW, rowIndex)
+        .then(this.onBumpRound.bind(this))
+    },
+
+    onBumpRound () {
+      if (this.currentRound === this.finalRound) {
+        this.$router.push({ name: 'Reveal' })
+      }
+    }
   },
 
   created () {
@@ -60,19 +71,3 @@ export default {
   }
 }
 </script>
-
-
-<style scoped>
-.container {
-  max-width: 53.75rem;
-  text-align: center;
-}
-
-.title {
-  margin: 0;
-  font-family: 'Amatic SC', cursive;
-  font-size: 4.5rem;
-  font-weight: 700;
-  text-shadow: .3125rem .3125rem #a03839;
-}
-</style>

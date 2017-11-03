@@ -21,4 +21,17 @@ body {
   color: #fff;
   background-color: #b9514e;
 }
+
+.container {
+  max-width: 53.75rem;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Amatic SC', cursive;
+  font-size: 4.5rem;
+  font-weight: 700;
+  text-shadow: .3125rem .3125rem #a03839;
+}
 </style>

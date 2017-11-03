@@ -4,6 +4,7 @@ import * as mutations from '@/store/mutation-types'
 export const trickActions = {
   [actions.FETCH_CARDS]: ({ commit }) => {
     commit(mutations.DISPLAY_LOADER)
+    commit(mutations.RESET_ROUND)
 
     fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=21')
       .then(response => response.json())
@@ -24,5 +25,7 @@ export const trickActions = {
 
     commit(mutations.CHOOSE_ROW, { rowIndex, columns })
     commit(mutations.BUMP_ROUND)
+
+    return Promise.resolve()
   }
 }

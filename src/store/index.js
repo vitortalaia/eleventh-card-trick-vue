@@ -13,6 +13,7 @@ export default new Vuex.Store({
     cardsPerRow: 7,
     isFetching: false,
     currentRound: 0,
+    finalRound: 3,
     cards: []
   },
 
