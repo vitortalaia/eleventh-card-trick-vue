@@ -42,7 +42,8 @@ export default {
       'numberOfRows',
       'cardsPerRow',
       'isFetching',
-      'currentRound'
+      'currentRound',
+      'finalRound'
     ]),
 
     ...mapGetters(['columns'])
@@ -50,9 +51,19 @@ export default {
 
   methods: {
     ...mapActions({
-      fetchCards: actions.FETCH_CARDS,
-      chooseRow: actions.CHOOSE_ROW
-    })
+      fetchCards: actions.FETCH_CARDS
+    }),
+
+    chooseRow (rowIndex) {
+      this.$store.dispatch(actions.CHOOSE_ROW, rowIndex)
+        .then(this.onBumpRound.bind(this))
+    },
+
+    onBumpRound () {
+      if (this.currentRound === this.finalRound) {
+        this.$router.push({ name: 'Reveal' })
+      }
+    }
   },
 
   created () {

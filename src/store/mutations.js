@@ -28,5 +28,9 @@ export const cardMutations = {
 
   [types.BUMP_ROUND]: (state) => {
     state.currentRound++
+  },
+
+  [types.RESET_ROUND]: (state) => {
+    state.currentRound = 0
   }
 }
