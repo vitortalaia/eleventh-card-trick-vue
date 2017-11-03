@@ -3,18 +3,21 @@
   "version": "1.0.0",
   "description": "A simple card trick that can read your mind!",
   "author": "Vitor Talaia <vitor.talaia.oliveira@gmail.com>",
-  "private": true,
+  "homepage": "https://github.com/vitortalaia/eleventh-card-trick-vue",
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit/specs"
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
+    "deploy": "node ./node_modules/vue-gh-pages/index.js"
   },
   "dependencies": {
     "lodash": "^4.17.4",
     "vue": "^2.5.2",
+    "vue-gh-pages": "^1.6.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
