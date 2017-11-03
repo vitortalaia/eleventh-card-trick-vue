@@ -39,7 +39,7 @@ export default {
 
   methods: {
     playTada () {
-      new Audio('/static/tada.mp3').play()
+      new Audio('static/tada.mp3').play()
     }
   },
 
