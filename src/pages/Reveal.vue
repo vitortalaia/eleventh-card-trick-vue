@@ -5,10 +5,9 @@
     <div class="revealed-card">
       <img
         class="animated tada"
-        alt=""
         width="226"
         height="314"
-        src="http://deckofcardsapi.com/static/img/KC.png"
+        :src="chosenCard.image"
       >
     </div>
 
@@ -18,7 +17,8 @@
 
 <script>
 import {
-  mapState
+  mapState,
+  mapGetters
 } from 'vuex'
 
 import PlayButton from '@/components/PlayButton'
@@ -32,7 +32,9 @@ export default {
     ...mapState([
       'currentRound',
       'finalRound'
-    ])
+    ]),
+
+    ...mapGetters(['chosenCard'])
   },
 
   methods: {
